@@ -40,6 +40,7 @@ jobs:
         tf_actions_version: 0.14.8
         tf_actions_subcommand: 'init'
         tf_actions_working_dir: "./environments/dev/vm"
+        args: '-var-file="dev.tfvars"'
  
     - name: 'Terraform Validate'
       uses: hashicorp/terraform-github-actions@master
