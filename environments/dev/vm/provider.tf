@@ -14,5 +14,5 @@ terraform  {
     storage_account_name = "terraformcodeops"
     container_name       = "tfstatefile"
     key                  = "dev.terraform.tfstate"
-  }
+   }
 }
