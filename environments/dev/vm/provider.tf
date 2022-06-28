@@ -14,5 +14,6 @@ terraform {
     storage_account_name = "terraformcodeops"
     container_name       = "tfstatefile"
     key                  = "terraformgithub.tfstate"
+    use_azuread_auth     = true
   }
 }
