@@ -40,10 +40,8 @@ jobs:
         tf_actions_version: 0.14.8
         tf_actions_subcommand: 'init'
         tf_actions_working_dir: "./environments/dev/vm"
-        args: '-var-file="dev.tfvars"'
-      run:  |
-        terraform init -backend-config=/backend.tfvars -upgrade=true -no-color -input=false
- 
+        args: -var-file="dev.tfvars"
+              -backend-config="backend.tfvars"
     - name: 'Terraform Validate'
       uses: hashicorp/terraform-github-actions@master
       with:
@@ -57,7 +55,8 @@ jobs:
         tf_actions_version: 0.14.8
         tf_actions_subcommand: 'plan'
         tf_actions_working_dir: "./environments/dev/vm"
-        args: '-var-file="dev.tfvars"'
+        args: -var-file="dev.tfvars"
+              -backend-config="backend.tfvars"
  
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main'
@@ -66,4 +65,5 @@ jobs:
         tf_actions_version: 0.14.8
         tf_actions_subcommand: 'apply'
         tf_actions_working_dir: "./environments/dev/vm"
-        args: '-var-file="dev.tfvars"'
+        args: -var-file="dev.tfvars"
+              -backend-config="backend.tfvars"
