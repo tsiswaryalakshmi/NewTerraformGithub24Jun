@@ -41,6 +41,8 @@ jobs:
         tf_actions_subcommand: 'init'
         tf_actions_working_dir: "./environments/dev/vm"
         args: '-var-file="dev.tfvars"'
+      run:  |
+        terraform init -backend-config=/backend.tfvars -upgrade=true -no-color -input=false
  
     - name: 'Terraform Validate'
       uses: hashicorp/terraform-github-actions@master
