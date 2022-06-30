@@ -41,6 +41,7 @@ jobs:
         tf_actions_subcommand: 'init'
         tf_actions_working_dir: "./environments/dev/vm"
         args: '-var-file="dev.tfvars"'
+        args: '-var-file="terra.tfvars"'
  
     - name: 'Terraform Validate'
       uses: hashicorp/terraform-github-actions@master
@@ -56,6 +57,7 @@ jobs:
         tf_actions_subcommand: 'plan'
         tf_actions_working_dir: "./environments/dev/vm"
         args: '-var-file="dev.tfvars"'
+        args: '-var-file="terra.tfvars"'
  
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main'
@@ -65,3 +67,4 @@ jobs:
         tf_actions_subcommand: 'apply'
         tf_actions_working_dir: "./environments/dev/vm"
         args: '-var-file="dev.tfvars"'
+        args: '-var-file="terra.tfvars"'
